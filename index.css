@@ -22,6 +22,25 @@ button {
   font-weight: bold;
   padding: 10px 20px;
   border: 1px solid #5f9341;
+  transition: all 500ms ease-in-out;
+}
+
+button:hover {
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  transition: all 500ms ease;
+}
+
+#input-btn:hover {
+  background-color: #523345;
+}
+
+#save-btn:hover {
+  background-color: #523345;
 }
 
 #delete-btn {
