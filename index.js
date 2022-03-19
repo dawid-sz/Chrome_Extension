@@ -11,12 +11,13 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 };
 
-const tabs = [
-    {url: "link to the profile"}
-];
-
+//creating saveTab function with googleChrome API 
 tabBtn.addEventListener("click", function() {
-    console.log(tabs[0].url)
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads)) // saving to myLeads because it is pushed to myLeads array
+        render(myLeads)
+    })
 });
 
 deleteBtn.addEventListener("dblclick", function() {
@@ -28,7 +29,7 @@ deleteBtn.addEventListener("dblclick", function() {
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) ) //Turning array into a string to safe input into the local storage
+    localStorage.setItem("myLeads", JSON.stringify(myLeads)) //Turning array into a string to safe input into the local storage
     render(myLeads);
 });
 
